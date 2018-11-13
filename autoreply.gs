@@ -31,6 +31,7 @@ function autoreply() {
  var name = '団体名(正式名称)';
  var mail = 'メールアドレス';
 　　var address = "";
+ var tel = '電話番号'
  
  var sheet = SpreadsheetApp.getActiveSheet();
  var rows = sheet.getLastRow();
@@ -42,6 +43,16 @@ function autoreply() {
  var col_name = rg.getCell(1, i).getValue(); 
  var col_value = rg.getCell(rows, i).getValue(); 
  body += "■"+col_name+"\n";
+    //電話番号の先頭のゼロをなんとかする
+ var update_value = col_value;
+if ((col_name === tel) && String(col_value).substr(0,1) !== "0"){
+    update_value = "0"+col_value;
+}
+if(update_value !== col_value){
+    // スプレッドシートの方も書き換える
+    sheet.getRange(rows, i).setValue("'"+update_value);
+    col_value = update_value;
+}
  body += col_value + "\n\n";
  if ( col_name === name ) {
  body = col_value+" 様\n\n"+body;

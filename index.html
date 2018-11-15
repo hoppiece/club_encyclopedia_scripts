@@ -32,6 +32,7 @@
       font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
       margin-bottom:15px;
       border-bottom: 1px solid #0090b0;
+      background-color:#d9f5f9
     }
     #footer{
       font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
@@ -40,6 +41,7 @@
       text-align:center;
       border-top:1px solid #0090b0;
       padding:10px 0 20px;
+      background-color:#d9f5f9
   }
     h1{
       font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
@@ -55,6 +57,7 @@
     border-left:5px solid #4e8ffe;
     padding:3px 0 3px 10px;
     margin-bottom:10px;
+    background-color:#d9f5f9
   }
  
   h3{
@@ -81,7 +84,13 @@
     </ul>
     <form id="myForm" onsubmit="handleFormSubmit(this)">
       <p>
-        <input name="myFile" type="file" accept="image/png"/>
+        団体名：<input type="text" name="name" size="40" required>
+      </p>
+      <p>
+        提出ファイル：<input name="myFile" type="file" accept="image/png,image/jpeg,image/bmp" required>
+      </p>
+      <br><br>
+      <p>
         <input type="submit" value="送信" /><input type="reset" value="リセット">
       </p>
     </form>

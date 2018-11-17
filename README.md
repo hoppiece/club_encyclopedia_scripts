@@ -7,19 +7,19 @@
 # 自動返信 使い方
 1. フォームの解答をスプレッドシートに出力
 
-2. スプレッドシートのツールからスクリプトエディタを開き，[autoreply.gs](https://github.com/hoppiece/club_encyclopedia_scripts/blob/master/autoreply.gs) をコピペ
+2. スプレッドシートのツールからスクリプトエディタを開き，[autoreply.gs](https://github.com/hoppiece/club_encyclopedia_scripts/blob/master/autoreply.gs) をコピペ
 
 3. 関数のトリガーを解答を受け取ったときに設定  
 
 ## Memo
-- [autoreply.gs](https://github.com/hoppiece/club_encyclopedia_scripts/blob/master/autoreply.gs) は Google Form の回答を受け取りをトリガーとして関数 autoreply() を実行する JavaScrept 風のスクリプト.
-- 関数の中身では主に本文生成を行っている．具体的には  
-1. 変数 `title`: メールのタイトル．
-2. 変数 `body`: メールの本文．`body` にどんどん内容を足していっている．フォームの回答はGASの関数でスプレッドシートから呼び出して `body` に加えている．メール後半の内容を `footer` に書いておいて最後に `body` に足している．スプレッドシート周りの呼び出しについては [GAS のリファレンス](https://developers.google.com/apps-script/reference/spreadsheet/) を参照．
-3. [GAS のメールまわりの関数](https://developers.google.com/apps-script/reference/gmail/)で送信．
-- フォームの方で，電話番号欄を電話番号の型以外を弾くようにした．(具体的には電話番号のGoogleフォームを短答記述で `^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$` という正規表現に一致するものだけを受け入れるようにした．  
-すると回答がスプレッドシートに流し込まれた際，電話番号が数値型だと判断されて先頭のゼロが消えてしまう．  
-そこでメールを本文を作成する際，電話番号データの頭が0でないない場合は，0を追加して，スプレッドシートのデータも文字列に直すようなコードを挟んだ．
+- [autoreply.gs](https://github.com/hoppiece/club_encyclopedia_scripts/blob/master/autoreply.gs) は Google Form の回答を受け取りをトリガーとして関数 autoreply() を実行する JavaScrept 風のスクリプト.
+- 関数の中身では主に本文生成を行っている．具体的には  
+1. 変数 `title`: メールのタイトル．
+2. 変数 `body`: メールの本文．`body` にどんどん内容を足していっている．フォームの回答はGASの関数でスプレッドシートから呼び出して `body` に加えている．メール後半の内容を `footer` に書いておいて最後に `body` に足している．スプレッドシート周りの呼び出しについては [GAS のリファレンス](https://developers.google.com/apps-script/reference/spreadsheet/) を参照．
+3. [GAS のメールまわりの関数](https://developers.google.com/apps-script/reference/gmail/)で送信．
+- フォームの方で，電話番号欄を電話番号の型以外を弾くようにした．(具体的には電話番号のGoogleフォームを短答記述で `^(0[5-9]0[0-9]{8}|0[1-9][1-9][0-9]{7})$` という正規表現に一致するものだけを受け入れるようにした．  
+すると回答がスプレッドシートに流し込まれた際，電話番号が数値型だと判断されて先頭のゼロが消えてしまう．  
+そこでメールを本文を作成する際，電話番号データの頭が0でないない場合は，0を追加して，スプレッドシートのデータも文字列に直すようなコードを挟んだ．
 
 ## 参考にしたサイト
 https://itwork100.com/google-form-gas/

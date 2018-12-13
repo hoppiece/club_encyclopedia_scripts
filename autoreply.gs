@@ -39,7 +39,8 @@ function autoreply() {
     
     var sheet = SpreadsheetApp.getActiveSheet();
     var rows = sheet.getLastRow();
-    var cols = sheet.getLastColumn();
+    //var cols = sheet.getLastColumn();
+    var cols = 10; //アンケートの質問の個数にする
     var rg = sheet.getDataRange();
     Logger.log("rows="+rows+" cols="+cols);
     

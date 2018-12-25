@@ -12,7 +12,7 @@ function processForm(formObject) {
   //原稿ファイルをDrive内のrootに作成
   var driveFile = DriveApp.createFile(formBlob);
 
-  //保存用フォルダを取得．引数のIDはそのフォルダのURLの末尾の英数字
+  //保存用フォルダを取得．引数のIDはそのフォルダのURL内の英数字(ググって)
   var uploadFolder = DriveApp.getFolderById("1WZnzSxZXe-NcaXiEKTePKwdLjL3O7z3Z");
 
   //提出原稿のファイル名を団体名にして保存用フォルダにコピー
